@@ -1,0 +1,73 @@
+./configure --with-openssl-opt=no-asm \
+--with-select_module \
+--with-http_sub_module \
+--with-http_v2_module \
+--with-http_flv_module \
+--with-http_mp4_module \
+--with-http_stub_status_module \
+--with-http_gzip_static_module \
+--with-http_realip_module \
+--with-http_dav_module \
+--with-http_gunzip_module \
+--with-http_addition_module \
+--prefix=. \
+--sbin-path=nginx.exe \
+--builddir=objs \
+--with-http_ssl_module \
+--with-mail_ssl_module \
+--with-pcre=objs/pcre2-10.42 \
+--with-openssl=objs/openssl-1.1.1t \
+--with-zlib=objs/zlib-1.2.13 \
+--with-mail \
+--with-http_secure_link_module \
+--with-http_random_index_module \
+--conf-path=conf/nginx.conf \
+--pid-path=logs/nginx.pid \
+--http-log-path=logs/access.log \
+--error-log-path=logs/error.log \
+--http-client-body-temp-path=temp/client_body_temp \
+--http-proxy-temp-path=temp/proxy_temp \
+--http-fastcgi-temp-path=temp/fastcgi_temp \
+--http-scgi-temp-path=temp/scgi_temp \
+--http-uwsgi-temp-path=temp/uwsgi_temp \
+--add-module=objs/nginx-rtmp-module \
+--with-stream
+
+
+
+
+注意：--with-pcre=objs/pcre2-10.42 \选项一定要去掉rewrite module
+
+--with-openssl=objs/openssl-1.1.1t \
+pacman -Syu openssl openssl-devel zlib zlib-devel pcre pcre-devel
+https://nginx.org/download/nginx-1.23.4.tar.gz
+https://github.com/arut/nginx-rtmp-module.git
+https://netix.dl.sourceforge.net/project/pcre/pcre/8.40/pcre-8.40.tar.gz
+pacman -Ss gcc
+
+1.pacman基本命令
+pacman -Sy 更新软件包数据 
+pacman -Syu 更新所有 
+pacman -Ss xx 查询软件xx的信息 
+pacman -S xx 安装软件xx
+pacman -R xx 删除软件xx
+
+2.安装gcc、g++编译器
+#查询并找到msys/gcc
+pacman -Ss gcc
+#安装
+pacman -S msys/gcc
+
+3.安装make编译器
+#查询并找到msys/make
+pacman -Ss make
+#安装
+pacman -S msys/make
+
+
+pacman -Syu
+pacman -S openssl
+pacman -S mingw-w64-x86_64-openssl
+
+pacman -S mingw-w64-x86_64-toolchain
+pacman -S mingw-w64-x86_64-pcre
